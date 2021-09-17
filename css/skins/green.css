@@ -1,0 +1,51 @@
+.aside .logo a::before {
+  border-top: 4px solid #72b626;
+  border-left: 4px solid #72b626;
+}
+
+.aside .logo a::after {
+  border-right: 4px solid #72b626;
+  border-bottom: 4px solid #72b626;
+}
+
+.lightbox .lightbox-content .lightbox-caption .portfolio-footer .languages li,
+body.dark .home .intro p span,
+.home .intro p span,
+body.dark .aside .nav li a.active,
+body.dark .aside .nav li a:hover,
+body.dark .portfolio .portfolio-filter button.active,
+.aside .nav li a:hover,
+.aside .nav li a.active,
+.about .about-content .about-text h3 span,
+.service .service-item .service-item-inner .icon .fa,
+.portfolio .portfolio-filter button.active,
+.portfolio .portfolio-item .portfolio-info .icon .fa,
+.lightbox .lightbox-controls .prev-item .fa,
+.lightbox .lightbox-controls .next-item .fa,
+.contact .contact-info-item .icon .fa {
+  color: #72b626;
+}
+
+.about .about-footer a,
+.portfolio .portfolio-footer a,
+.contact .contact-footer a,
+.swal2-confirm,
+.lightbox-caption .social-links a,
+.aside .nav-toggler span,
+.aside .nav-toggler span::before,
+.aside .nav-toggler span::after,
+.home .intro .social-links a,
+.section-title h2::before,
+.section-title h2::after,
+.btn,
+.about .about-content .skills .skill-item .progress .progress-in,
+.about .about-content .timeline .timeline-item::before,
+.about .about-content .timeline .circle-dot,
+.service .service-item .service-item-inner:hover .icon {
+  background-color: #72b626;
+}
+
+.portfolio .portfolio-filter button.active,
+body.dark .portfolio .portfolio-filter button.active {
+  border-color: #72b626;
+}
