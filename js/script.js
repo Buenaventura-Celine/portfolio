@@ -3,6 +3,29 @@ window.addEventListener("load", function(){
     setTimeout(function() {
         document.querySelector(".preloader").style.display="none";
     }, 1000)
+    
+    // Handle hash navigation on page load
+    if(window.location.hash) {
+        const target = window.location.hash.substring(1);
+        const targetSection = document.getElementById(target);
+        if(targetSection) {
+            // Remove active class from all sections
+            const allSections = document.querySelectorAll(".section");
+            allSections.forEach(section => section.classList.remove("active"));
+            
+            // Add active class to target section
+            targetSection.classList.add("active");
+            
+            // Update navigation
+            const navItems = document.querySelectorAll(".nav li a");
+            navItems.forEach(item => item.classList.remove("active"));
+            
+            const targetNavItem = document.querySelector(`a[href="#${target}"]`);
+            if(targetNavItem) {
+                targetNavItem.classList.add("active");
+            }
+        }
+    }
 })
 
 
@@ -13,6 +36,13 @@ const   filterContainer = document.querySelector(".portfolio-filter"),
         totalFilterBtn = filterBtns.length,
         portfolioItems = document.querySelectorAll(".portfolio-item"),
         totalPortfolioItem=portfolioItems.length;
+
+//Blog Item Filter
+const   blogFilterContainer = document.querySelector(".blog-filter"),
+        blogFilterBtns = blogFilterContainer?.children,
+        totalBlogFilterBtn = blogFilterBtns?.length || 0,
+        blogItems = document.querySelectorAll(".blog-item"),
+        totalBlogItem = blogItems.length;
 
         for(let i = 0; i < totalFilterBtn; i++){
             filterBtns[i].addEventListener("click", function(){
@@ -37,6 +67,34 @@ const   filterContainer = document.querySelector(".portfolio-filter"),
                 }
             })
         }
+
+// Blog Filter Functionality
+if (blogFilterContainer) {
+    for(let i = 0; i < totalBlogFilterBtn; i++){
+        blogFilterBtns[i].addEventListener("click", function(){
+            blogFilterContainer.querySelector(".active").classList.remove("active");
+            this.classList.add("active");
+
+            const filterValue = this.getAttribute("data-filter");
+            for(let k = 0; k < totalBlogItem; k++){
+                if(filterValue === blogItems[k].getAttribute("data-category")){
+                    blogItems[k].classList.remove("hide");
+                    blogItems[k].classList.add("show");
+                }else{
+                    blogItems[k].classList.remove("show");
+                    blogItems[k].classList.add("hide");
+                }
+
+                if (filterValue === "all"){
+                    blogItems[k].classList.remove("hide");
+                    blogItems[k].classList.add("show");
+                }
+            }
+        });
+    }
+}
+
+// Blog click functionality is now handled by links to separate pages
 
 //Portfolio Lightbox
 const lightbox = document.querySelector(".lightbox"),
