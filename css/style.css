@@ -285,13 +285,13 @@ select {
 }
 
 .aside .nav-toggler {
-  height: 40px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   border: 1px solid #d4d4e3;
   cursor: pointer;
   position: fixed;
   left: 300px;
-  top: 20px;
+  top: 15px;
   z-index: 11;
   border-radius: 5px;
   background-color: #fdf9ff;
@@ -368,6 +368,7 @@ select {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-transform: capitalize;
+  padding: 10px 0;
 }
 
 .aside .nav li a:not(.active):hover {
