@@ -32,8 +32,8 @@ window.addEventListener("load", function(){
 //Portfolio Item Filter
 
 const   filterContainer = document.querySelector(".portfolio-filter"),
-        filterBtns = filterContainer.children,
-        totalFilterBtn = filterBtns.length,
+        filterBtns = filterContainer?.children,
+        totalFilterBtn = filterBtns?.length || 0,
         portfolioItems = document.querySelectorAll(".portfolio-item"),
         totalPortfolioItem=portfolioItems.length;
 
@@ -44,10 +44,11 @@ const   blogFilterContainer = document.querySelector(".blog-filter"),
         blogItems = document.querySelectorAll(".blog-item"),
         totalBlogItem = blogItems.length;
 
-        for(let i = 0; i < totalFilterBtn; i++){
-            filterBtns[i].addEventListener("click", function(){
-                filterContainer.querySelector(".active").classList.remove("active");
-                this.classList.add("active")
+        if(filterContainer) {
+            for(let i = 0; i < totalFilterBtn; i++){
+                filterBtns[i].addEventListener("click", function(){
+                    filterContainer.querySelector(".active").classList.remove("active");
+                    this.classList.add("active")
 
                 const filterValue = this.getAttribute("data-filter");
                 for(let k=0; k<totalPortfolioItem; k++ ){
@@ -66,6 +67,7 @@ const   blogFilterContainer = document.querySelector(".blog-filter"),
                     }
                 }
             })
+            }
         }
 
 // Blog Filter Functionality
